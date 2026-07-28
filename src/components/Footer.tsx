@@ -97,6 +97,19 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">
             © 2026 Lazard Legacy Enterprises LLC. All rights reserved.
           </p>
+          <div className="mt-4 flex items-center justify-center space-x-2 text-sm">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-gold transition-colors duration-200">
+              Privacy Policy
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link href="/terms-of-service" className="text-gray-400 hover:text-gold transition-colors duration-200">
+              Terms of Service
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link href="/cookie-notice" className="text-gray-400 hover:text-gold transition-colors duration-200">
+              Cookie Notice
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
