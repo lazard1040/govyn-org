@@ -117,8 +117,8 @@ export default function TermsOfServicePage() {
               <p className="text-gray-700 font-semibold">Lazard Legacy Enterprises LLC</p>
               <p className="text-gray-700">
                 Email:{" "}
-                <a href="mailto:lazardgregory@icloud.com" className="text-gold hover:underline">
-                  lazardgregory@icloud.com
+                <a href="mailto:lazardlegacyent@govyn.org" className="text-gold hover:underline">
+                  lazardlegacyent@govyn.org
                 </a>
               </p>
               <p className="text-gray-700">

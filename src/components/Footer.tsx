@@ -51,8 +51,8 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-300">
               <p>Gregory Lazard Jr.</p>
               <p>
-                <a href="mailto:lazardgregory@icloud.com" className="hover:text-gold transition-colors">
-                  lazardgregory@icloud.com
+                <a href="mailto:lazardlegacyent@govyn.org" className="hover:text-gold transition-colors">
+                  lazardlegacyent@govyn.org
                 </a>
               </p>
               <p>

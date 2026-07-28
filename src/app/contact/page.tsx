@@ -27,8 +27,8 @@ export default function ContactPage() {
                   <span className="text-gold text-xl">✉️</span>
                   <div>
                     <p className="font-semibold text-navy">Email</p>
-                    <a href="mailto:lazardgregory@icloud.com" className="text-gold hover:underline">
-                      lazardgregory@icloud.com
+                    <a href="mailto:lazardlegacyent@govyn.org" className="text-gold hover:underline">
+                      lazardlegacyent@govyn.org
                     </a>
                   </div>
                 </div>
