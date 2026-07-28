@@ -1,101 +1,149 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import Link from "next/link";
+
+const services = [
+  {
+    title: "Math Tutoring",
+    description: "Expert math instruction for grades 5 through college. ACT/SAT prep, algebra, geometry, and statistics.",
+    icon: "📐",
+    href: "/tutoring",
+  },
+  {
+    title: "Tax Services",
+    description: "Professional tax preparation for individuals, self-employed, and small businesses.",
+    icon: "📊",
+    href: "/tax-services",
+  },
+  {
+    title: "Publishing",
+    description: "Poetry collections, educational workbooks, and the R&B Bible Series.",
+    icon: "📚",
+    href: "/bookstore",
+  },
+  {
+    title: "Business Consulting",
+    description: "LLC formation, startup planning, budgeting, branding, and entrepreneur coaching.",
+    icon: "💼",
+    href: "/consulting",
+  },
+  {
+    title: "Speaking",
+    description: "Inspiring talks on education, financial literacy, entrepreneurship, and leadership.",
+    icon: "🎤",
+    href: "/speaking",
+  },
+  {
+    title: "Resources",
+    description: "Free worksheets, checklists, and planners to support your personal and financial growth.",
+    icon: "📋",
+    href: "/resources",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Marcus T.",
+    text: "Gregory helped my son go from a D to a B+ in algebra. His patience and expertise made all the difference.",
+    role: "Parent",
+  },
+  {
+    name: "Shantel W.",
+    text: "Filing my taxes used to stress me out every year. Gregory made the whole process smooth and I got my biggest refund ever.",
+    role: "Client",
+  },
+  {
+    name: "DeAndre J.",
+    text: "I had a business idea but no clue where to start. Gregory walked me through everything from the LLC to the business plan.",
+    role: "Entrepreneur",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <HeroSection
+        title="Building Legacy. Creating Opportunity. Empowering People."
+        subtitle="Welcome to VYNCO, the official home of Lazard Legacy Enterprises. We provide education, financial services, publishing, consulting, and business solutions designed to help individuals, families, and entrepreneurs succeed."
+        showCTAs={true}
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Services Overview */}
+      <section className="py-16 md:py-20 bg-light-gray">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy text-center mb-12">
+            Our Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <Link
+                key={service.title}
+                href={service.href}
+                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 group"
+              >
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-serif font-bold text-navy mb-2 group-hover:text-gold transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm">{service.description}</p>
+              </Link>
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* About Preview */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="bg-gradient-to-br from-navy to-navy/80 rounded-2xl aspect-square flex items-center justify-center">
+              <div className="text-center text-white">
+                <div className="text-6xl mb-4">👤</div>
+                <p className="text-gold font-serif text-lg">Gregory Lazard Jr.</p>
+                <p className="text-gray-300 text-sm">Founder & CEO</p>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">
+                Meet Gregory Lazard Jr.
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Math Specialist, Tax Professional, Published Author, and Business Consultant.
+                A native of New Orleans and proud graduate of Southern University at New Orleans,
+                Gregory is dedicated to helping families build financial and educational success.
+              </p>
+              <p className="text-gray-600 mb-6">
+                &ldquo;Dreams can come true. Better late than never.&rdquo;
+              </p>
+              <Link
+                href="/about"
+                className="inline-block bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200"
+              >
+                Learn More About Gregory
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 md:py-20 bg-navy">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold text-center mb-12">
+            What People Are Saying
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <div key={t.name} className="bg-white/5 border border-white/10 p-6 rounded-xl">
+                <p className="text-gray-300 mb-4 italic">&ldquo;{t.text}&rdquo;</p>
+                <div>
+                  <p className="text-gold font-semibold">{t.name}</p>
+                  <p className="text-gray-400 text-sm">{t.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
