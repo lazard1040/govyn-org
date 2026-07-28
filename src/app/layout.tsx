@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "VYNCO | Lazard Legacy Enterprises",
   description: "Building Legacy. Creating Opportunity. Empowering People. Education, financial services, publishing, consulting, and business solutions.",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
