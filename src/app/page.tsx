@@ -1,4 +1,3 @@
-import HeroSection from "@/components/HeroSection";
 import Link from "next/link";
 
 const services = [
@@ -61,11 +60,47 @@ const testimonials = [
 export default function Home() {
   return (
     <>
-      <HeroSection
-        title="Building Legacy. Creating Opportunity. Empowering People."
-        subtitle="Welcome to VYNCO, the official home of Lazard Legacy Enterprises. We provide education, financial services, publishing, consulting, and business solutions designed to help individuals, families, and entrepreneurs succeed."
-        showCTAs={true}
-      />
+      {/* Hero Section - Two Column */}
+      <section className="bg-navy text-white py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-balance">
+                <span className="text-gold">Building Legacy. Creating Opportunity. Empowering People.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto lg:mx-0 mb-8">
+                Welcome to VYNCO, the official home of Lazard Legacy Enterprises. We provide education, financial services, publishing, consulting, and business solutions designed to help individuals, families, and entrepreneurs succeed.
+              </p>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-8">
+                <a href="/tutoring" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
+                  Schedule Tutoring
+                </a>
+                <a href="/tax-services" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
+                  Book Tax Services
+                </a>
+                <a href="/bookstore" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
+                  Shop Books
+                </a>
+                <a href="/contact" className="bg-white/10 text-white border border-gold px-6 py-3 rounded-lg font-semibold hover:bg-gold hover:text-navy transition-colors duration-200">
+                  Contact Gregory
+                </a>
+                <a href="/consulting" className="bg-white/10 text-white border border-gold px-6 py-3 rounded-lg font-semibold hover:bg-gold hover:text-navy transition-colors duration-200">
+                  Start a Business Consultation
+                </a>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-600/30">
+                <img
+                  src="/images/gregory-lazard-jr.png"
+                  alt="Gregory Lazard Jr. — Founder & CEO, Lazard Legacy Enterprises"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Overview */}
       <section className="py-16 md:py-20 bg-light-gray">

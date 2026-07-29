@@ -24,8 +24,12 @@ export default function AboutPage() {
           <div className="prose prose-lg max-w-none">
             <div className="bg-light-gray p-8 rounded-2xl mb-8">
               <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="w-48 h-48 bg-gradient-to-br from-navy to-navy/80 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-6xl">👤</span>
+                <div className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/images/gregory-lazard-jr.png"
+                    alt="Gregory Lazard Jr. — Founder & CEO of Lazard Legacy Enterprises"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
                 <div>
                   <h2 className="text-2xl font-serif font-bold text-navy mb-2">Gregory Lazard Jr.</h2>
