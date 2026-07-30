@@ -105,7 +105,9 @@ export default function BookstorePage() {
                     <span className="text-navy font-bold">{book.price}</span>
                     {book.status === "available" ? (
                       <a
-                        href="#"
+                        href="https://a.co/d/0h87M8Xz"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-gold text-navy px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition-colors"
                       >
                         Buy Now
