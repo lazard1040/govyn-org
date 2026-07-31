@@ -1,9 +1,9 @@
 import Stripe from 'stripe'
 import { NextRequest, NextResponse } from 'next/server'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2026-07-29.dahlia' })
-
 export async function POST(req: NextRequest) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2023-10-16' })
+
   const { productName, price, quantity, customerEmail, notes } = await req.json()
 
   const session = await stripe.checkout.sessions.create({
