@@ -5,9 +5,13 @@ const books = [
     title: "Laugh Now, Cry Later",
     author: "Gregory Lazard Jr.",
     description: "A powerful poetry collection exploring New Orleans culture, love, loss, and triumph. Raw, honest, and deeply personal.",
-    price: "$14.99",
     status: "available",
     category: "Poetry",
+    hasDualPricing: true,
+    paperbackPrice: "$16",
+    hardcoverPrice: "$24.99",
+    paperbackLink: "https://a.co/d/0h87M8Xz",
+    hardcoverLink: "https://a.co/d/0h87M8Xz",
   },
   {
     title: "Future Southern Gentleman",
@@ -101,23 +105,52 @@ export default function BookstorePage() {
                   <h3 className="text-lg font-serif font-bold text-navy mb-1">{book.title}</h3>
                   <p className="text-gold text-sm font-medium mb-2">by {book.author}</p>
                   <p className="text-gray-600 text-sm mb-4">{book.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-navy font-bold">{book.price}</span>
-                    {book.status === "available" ? (
-                      <a
-                        href="https://a.co/d/0h87M8Xz"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gold text-navy px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition-colors"
-                      >
-                        Buy Now
-                      </a>
-                    ) : (
-                      <span className="bg-gray-100 text-gray-500 px-4 py-2 rounded-lg text-sm font-semibold">
-                        Coming Soon
-                      </span>
-                    )}
-                  </div>
+                  {book.hasDualPricing ? (
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-navy font-bold">Paperback — {book.paperbackPrice}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-navy font-bold">Hardcover — {book.hardcoverPrice}</span>
+                      </div>
+                      <div className="flex gap-3">
+                        <a
+                          href={book.paperbackLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 text-center bg-gold text-navy px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition-colors"
+                        >
+                          Buy Now
+                        </a>
+                        <a
+                          href={book.hardcoverLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 text-center bg-navy text-white border-2 border-gold px-4 py-2 rounded-lg text-sm font-semibold hover:bg-navy/90 transition-colors"
+                        >
+                          Buy Hardcover
+                        </a>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between">
+                      <span className="text-navy font-bold">{book.price}</span>
+                      {book.status === "available" ? (
+                        <a
+                          href="https://a.co/d/0h87M8Xz"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-gold text-navy px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition-colors"
+                        >
+                          Buy Now
+                        </a>
+                      ) : (
+                        <span className="bg-gray-100 text-gray-500 px-4 py-2 rounded-lg text-sm font-semibold">
+                          Coming Soon
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

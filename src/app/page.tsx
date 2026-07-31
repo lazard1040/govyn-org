@@ -6,18 +6,21 @@ const services = [
     description: "Expert math instruction for grades 5 through college. ACT/SAT prep, algebra, geometry, and statistics.",
     icon: "📐",
     href: "/tutoring",
+    pricing: "Starting at $20/hr",
   },
   {
     title: "Tax Services",
     description: "Professional tax preparation for individuals, self-employed, and small businesses.",
     icon: "📊",
     href: "/tax-services",
+    pricing: "Starting at $400",
   },
   {
     title: "Publishing",
     description: "Poetry collections, educational workbooks, and the R&B Bible Series.",
     icon: "📚",
     href: "/bookstore",
+    pricing: "From $16",
   },
   {
     title: "Business Consulting",
@@ -123,6 +126,9 @@ export default function Home() {
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-sm">{service.description}</p>
+                {"pricing" in service && (
+                  <p className="text-gold font-semibold text-sm mt-2">{service.pricing}</p>
+                )}
               </Link>
             ))}
           </div>

@@ -13,23 +13,22 @@ const subjects = [
 
 const pricingTiers = [
   {
-    name: "Single Session",
-    price: "$50",
-    duration: "1 hour",
-    features: ["One-on-one instruction", "Customized lesson plan", "Online or in-person"],
+    name: "K-12 Tutoring (All Subjects)",
+    price: "$20/hour",
+    features: [
+      "All subjects through 12th grade",
+      "Math, Science, English, History, and more",
+      "Online and In-Person available",
+    ],
   },
   {
-    name: "Weekly Package",
-    price: "$180",
-    duration: "4 sessions/month",
-    features: ["Weekly one-hour sessions", "Progress tracking", "Homework support", "Priority scheduling"],
-    popular: true,
-  },
-  {
-    name: "Test Prep Intensive",
-    price: "$350",
-    duration: "8 sessions",
-    features: ["ACT/SAT focused", "Practice tests included", "Score improvement guarantee", "Flexible scheduling"],
+    name: "College Tutoring",
+    price: "$30/hour",
+    features: [
+      "Business courses, Accounting, and all Math subjects",
+      "Undergraduate level",
+      "Online and In-Person available",
+    ],
   },
 ];
 
@@ -69,21 +68,13 @@ export default function TutoringPage() {
           <h2 className="text-3xl font-serif font-bold text-navy text-center mb-12">
             Pricing
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {pricingTiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`bg-white p-6 rounded-xl shadow-sm border-2 ${
-                  tier.popular ? "border-gold" : "border-gray-100"
-                } relative`}
+                className="bg-white p-6 rounded-xl shadow-sm border-2 border-gray-100"
               >
-                {tier.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-navy text-xs font-bold px-3 py-1 rounded-full">
-                    Most Popular
-                  </span>
-                )}
                 <h3 className="text-xl font-serif font-bold text-navy mb-1">{tier.name}</h3>
-                <p className="text-gray-500 text-sm mb-4">{tier.duration}</p>
                 <p className="text-3xl font-bold text-gold mb-4">{tier.price}</p>
                 <ul className="space-y-2 mb-6">
                   {tier.features.map((feature) => (
@@ -93,17 +84,14 @@ export default function TutoringPage() {
                   ))}
                 </ul>
                 <a
-                  href="/contact"
+                  href="/contact?subject=Tutoring+Session+Booking"
                   className="block text-center bg-gold text-navy py-2 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
                 >
-                  Book Now
+                  Book a Session
                 </a>
               </div>
             ))}
           </div>
-          <p className="text-center text-gray-500 text-sm mt-6">
-            * Prices are placeholder estimates. Contact us for a personalized quote.
-          </p>
         </div>
       </section>
 

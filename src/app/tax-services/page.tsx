@@ -39,8 +39,30 @@ export default function TaxServicesPage() {
         subtitle="Professional tax preparation and planning for individuals, self-employed workers, and small businesses."
       />
 
-      {/* Services */}
+      {/* Pricing */}
       <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-serif font-bold text-navy text-center mb-8">
+            Pricing
+          </h2>
+          <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+            <h3 className="text-2xl font-serif font-bold text-navy mb-2">Tax Preparation</h3>
+            <p className="text-4xl font-bold text-gold mb-4">$400 <span className="text-lg font-normal text-gray-500">flat rate</span></p>
+            <p className="text-gray-600 mb-6">
+              <span className="font-semibold text-navy">$100 deposit required</span> to reserve your appointment — remaining $300 due at completion.
+            </p>
+            <a
+              href="/contact?subject=Book+Tax+Appointment"
+              className="inline-block bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
+            >
+              Book Tax Appointment — $400 ($100 deposit today)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-16 md:py-20 bg-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-serif font-bold text-navy text-center mb-12">
             What We Offer
@@ -57,7 +79,7 @@ export default function TaxServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="py-16 md:py-20 bg-light-gray">
+      <section className="py-16 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-serif font-bold text-navy text-center mb-12">
             Our Process
@@ -77,7 +99,7 @@ export default function TaxServicesPage() {
       </section>
 
       {/* CTA + Contact */}
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 bg-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-serif font-bold text-navy text-center mb-4">
             Book Your Appointment
