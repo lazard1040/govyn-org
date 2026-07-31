@@ -60,6 +60,9 @@ export default function Footer() {
                   (504) 521-9012
                 </a>
               </p>
+              <p className="text-gold/80 text-xs pt-1">
+                🕗 Hours: Mon–Sat 8AM–8PM CST | Sun: By Appointment
+              </p>
               <p>
                 <a href="https://www.vynco.org" className="hover:text-gold transition-colors">
                   www.vynco.org

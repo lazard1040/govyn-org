@@ -30,7 +30,7 @@ const services = [
     pricing: "Starting at $25",
   },
   {
-    title: "Business Consulting",,
+    title: "Business Consulting",
     description: "LLC formation, startup planning, budgeting, branding, and entrepreneur coaching.",
     icon: "💼",
     href: "/consulting",
@@ -162,8 +162,11 @@ export default function Home() {
                 A native of New Orleans and proud graduate of Southern University at New Orleans,
                 Gregory is dedicated to helping families build financial and educational success.
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-4">
                 &ldquo;Dreams can come true. Better late than never.&rdquo;
+              </p>
+              <p className="text-gold text-sm font-medium mb-6">
+                🕗 Available Mon–Sat, 8AM–8PM CST
               </p>
               <Link
                 href="/about"

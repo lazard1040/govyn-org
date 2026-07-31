@@ -80,6 +80,42 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
+
+              {/* Business Hours */}
+              <div className="mt-8 bg-navy rounded-xl p-6 border border-gold/30">
+                <h3 className="text-lg font-semibold text-gold mb-4 flex items-center gap-2">
+                  🕗 Business Hours
+                </h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between items-center text-gray-200">
+                    <span>Monday – Friday</span>
+                    <span className="text-gold font-medium">8:00 AM – 8:00 PM CST</span>
+                  </div>
+                  <div className="flex justify-between items-center text-gray-200">
+                    <span>Saturday</span>
+                    <span className="text-gold font-medium">8:00 AM – 8:00 PM CST</span>
+                  </div>
+                  <div className="flex justify-between items-center text-gray-200">
+                    <span>Sunday</span>
+                    <span className="text-gold font-medium">By Appointment Only</span>
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-white/10 space-y-1 text-sm text-gray-300">
+                  <p>⏱ Response time: Within 24 hours</p>
+                  <p>
+                    📞{" "}
+                    <a href="tel:+15045219012" className="hover:text-gold transition-colors">
+                      (504) 521-9012
+                    </a>
+                  </p>
+                  <p>
+                    ✉️{" "}
+                    <a href="mailto:lazardlegacyent@govyn.org" className="hover:text-gold transition-colors">
+                      lazardlegacyent@govyn.org
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Form */}
