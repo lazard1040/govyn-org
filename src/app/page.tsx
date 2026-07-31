@@ -23,7 +23,14 @@ const services = [
     pricing: "From $16",
   },
   {
-    title: "Business Consulting",
+    title: "Business Cards & Flyers",
+    description: "Custom designed business cards and flyers. Professional quality, fast turnaround.",
+    icon: "🎨",
+    href: "/business-development",
+    pricing: "Starting at $25",
+  },
+  {
+    title: "Business Consulting",,
     description: "LLC formation, startup planning, budgeting, branding, and entrepreneur coaching.",
     icon: "💼",
     href: "/consulting",
