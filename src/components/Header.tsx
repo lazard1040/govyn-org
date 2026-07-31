@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/tutoring", label: "Tutoring" },
   { href: "/tax-services", label: "Tax Services" },
   { href: "/consulting", label: "Business Consulting" },
+  { href: "/business-development", label: "Business Cards & Flyers" },
   { href: "/speaking", label: "Speaking" },
   { href: "/resources", label: "Resources" },
   { href: "/contact", label: "Contact" },

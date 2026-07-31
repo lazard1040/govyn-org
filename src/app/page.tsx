@@ -81,6 +81,9 @@ export default function Home() {
                 <a href="/bookstore" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
                   Shop Books
                 </a>
+                <a href="/business-development" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
+                  Order Business Cards &amp; Flyers
+                </a>
                 <a href="/contact" className="bg-white/10 text-white border border-gold px-6 py-3 rounded-lg font-semibold hover:bg-gold hover:text-navy transition-colors duration-200">
                   Contact Gregory
                 </a>
