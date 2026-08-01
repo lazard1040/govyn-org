@@ -4,7 +4,9 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(req: NextRequest) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2026-07-29.dahlia' })
 
-  const { productName, price, quantity, customerEmail, notes } = await req.json()
+  const { productName, price, quantity, customerEmail, notes, successUrl, cancelUrl } = await req.json()
+
+  const origin = req.headers.get('origin')
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
@@ -20,8 +22,8 @@ export async function POST(req: NextRequest) {
       quantity: 1,
     }],
     mode: 'payment',
-    success_url: `${req.headers.get('origin')}/business-development/success`,
-    cancel_url: `${req.headers.get('origin')}/business-development`,
+    success_url: `${origin}${successUrl || '/business-development/success'}`,
+    cancel_url: `${origin}${cancelUrl || '/business-development'}`,
     customer_email: customerEmail || undefined,
   })
 

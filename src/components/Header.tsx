@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/bookstore", label: "Bookstore" },
+  { href: "/courses", label: "Online Courses" },
   { href: "/tutoring", label: "Tutoring" },
   { href: "/tax-services", label: "Tax Services" },
   { href: "/consulting", label: "Business Consulting" },

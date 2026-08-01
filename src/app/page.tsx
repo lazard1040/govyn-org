@@ -9,6 +9,13 @@ const services = [
     pricing: "Starting at $20/hr",
   },
   {
+    title: "Online Courses",
+    description: "Math courses for all ages — 3rd grade through college. Full courses and quick practice sessions.",
+    icon: "🎓",
+    href: "/courses",
+    pricing: "From $12.49",
+  },
+  {
     title: "Tax Services",
     description: "Professional tax preparation for individuals, self-employed, and small businesses.",
     icon: "📊",
@@ -84,6 +91,9 @@ export default function Home() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-8">
                 <a href="/tutoring" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
                   Schedule Tutoring
+                </a>
+                <a href="/courses" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
+                  Enroll in a Course
                 </a>
                 <a href="/tax-services" className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200">
                   Book Tax Services
