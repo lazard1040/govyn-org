@@ -22,7 +22,8 @@ export async function POST(req: NextRequest) {
       quantity: 1,
     }],
     mode: 'payment',
-    success_url: `${origin}${successUrl || '/business-development/success'}`,
+    metadata: { productName },
+    success_url: `${origin}${successUrl || '/business-development/success'}?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}${cancelUrl || '/business-development'}`,
     customer_email: customerEmail || undefined,
   })
