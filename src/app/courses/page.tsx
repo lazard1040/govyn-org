@@ -92,15 +92,22 @@ const categoryAges: Record<Category, string> = {
   "Bundles": "Best Value",
 };
 
+const isEduEmail = (email: string) => email.trim().toLowerCase().endsWith('.edu');
+
 export default function CoursesPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("Elementary");
   const [selectedCourse, setSelectedCourse] = useState<{ title: string; price: number } | null>(null);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", notes: "" });
+  const [eduEmail, setEduEmail] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const discountApplied = eduEmail !== "" && isEduEmail(eduEmail);
+  const finalPrice = selectedCourse ? (discountApplied ? Math.round(selectedCourse.price * 0.5 * 100) / 100 : selectedCourse.price) : 0;
 
   const handleEnroll = (title: string, price: number) => {
     setSelectedCourse({ title, price });
     setFormData({ name: "", email: "", phone: "", notes: "" });
+    setEduEmail("");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -113,11 +120,11 @@ export default function CoursesPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          productName: selectedCourse.title,
-          price: selectedCourse.price,
+          productName: discountApplied ? `${selectedCourse.title} (Student Discount)` : selectedCourse.title,
+          price: finalPrice,
           quantity: 1,
           customerEmail: formData.email,
-          notes: `Name: ${formData.name}. Phone: ${formData.phone || "N/A"}. ${formData.notes}`,
+          notes: `Name: ${formData.name}. Phone: ${formData.phone || "N/A"}. ${eduEmail ? `School Email: ${eduEmail}. ` : ""}${formData.notes}`,
           successUrl: "/courses/success",
           cancelUrl: "/courses",
         }),
@@ -248,7 +255,7 @@ export default function CoursesPage() {
       {/* Order Modal */}
       {selectedCourse && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 relative">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedCourse(null)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl leading-none"
@@ -260,7 +267,15 @@ export default function CoursesPage() {
               Enroll Now
             </h3>
             <p className="text-gray-600 mb-6">
-              {selectedCourse.title} — <span className="text-gold font-bold">${selectedCourse.price}</span>
+              {selectedCourse.title} —{" "}
+              {discountApplied ? (
+                <>
+                  <span className="text-gray-400 line-through">${selectedCourse.price}</span>{" "}
+                  <span className="text-green-600 font-bold">${finalPrice}</span>
+                </>
+              ) : (
+                <span className="text-gold font-bold">${selectedCourse.price}</span>
+              )}
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -291,6 +306,27 @@ export default function CoursesPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
+                  🎓 Have a school email? Enter it for 50% off!
+                </label>
+                <input
+                  type="email"
+                  value={eduEmail}
+                  onChange={(e) => setEduEmail(e.target.value)}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 focus:ring-2 focus:ring-gold focus:border-gold outline-none"
+                  placeholder="yourname@school.edu"
+                />
+                {discountApplied ? (
+                  <p className="text-green-600 text-sm mt-1 font-medium">
+                    ✅ 50% student discount applied!
+                  </p>
+                ) : (
+                  <p className="text-gray-400 text-xs mt-1">
+                    Optional — no account required
+                  </p>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                   Phone Number <span className="text-gray-400">(optional)</span>
                 </label>
                 <input
@@ -318,7 +354,7 @@ export default function CoursesPage() {
                 disabled={loading}
                 className="w-full bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? "Processing..." : "Proceed to Payment"}
+                {loading ? "Processing..." : `Proceed to Payment — $${finalPrice}`}
               </button>
             </form>
           </div>
